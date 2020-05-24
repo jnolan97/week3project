@@ -16,13 +16,16 @@ class Rental():
         return self.income
     #Method to calculate ROI
     def cashROI(self):
-        down_payment = int(input("What did you put down on this house? "))
-        costs = int(input("What were your closing costs? "))
-        rehab = int(input("What did you spend on fixes? "))
-        total_cost = down_payment + costs + rehab
-        annual = (self.income * 12) - (self.expenses * 12)
-        invest = (float(annual / total_cost) * 100)
-        print(invest,"%")
+        try:
+            down_payment = int(input("What did you put down on this house? "))
+            costs = int(input("What were your closing costs? "))
+            rehab = int(input("What did you spend on fixes? "))
+            total_cost = down_payment + costs + rehab
+            annual = (self.income * 12) - (self.expenses * 12)
+            invest = (float(annual / total_cost) * 100)
+            print(invest,"%")
+        except Exception:
+            print("Only integers allowed")
 
 def run():
     buyer = Rental(2000,1610)
